@@ -1,15 +1,13 @@
-package singleton;
+package Singleton;
 
 public class SingletonMain {
 
     public static void main(String[]arg){
-        MongoDBClient mongoDBClient = MongoDBClient.getClient();
-        System.out.println(mongoDBClient.getData());
-        MongoDBClient mongoDBClient2 = MongoDBClient.getClient();
-        System.out.println(mongoDBClient2.getData());
-        MongoDBClient mongoDBClient3 = MongoDBClient.getClient();
-        System.out.println(mongoDBClient3.getData());
-
-
+        MySQLDBClient mysqlDBClient = MySQLDBClient.getClient();
+        System.out.println(mysqlDBClient.getData());
+        MySQLDBClient mysqlDBClient2 = MySQLDBClient.getClient();
+        System.out.println(mysqlDBClient2.getData());
+        MySQLDBClient mysqlDBClient3 = MySQLDBClient.getClient();
+        System.out.println(mysqlDBClient3.getData());
     }
 }

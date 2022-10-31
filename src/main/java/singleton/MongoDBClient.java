@@ -1,20 +1,20 @@
-package singleton;
+package Singleton;
 
 import com.mongodb.MongoException;
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
 
 
-public class MongoDBClient {
-    public static MongoDBClient client = null;
-    public static MongoClient mongoClient;
+public class MySQLDBClient {
+    public static MySQLDBClient client = null;
+    public static MongoClient mysqlClient;
 
-    private MongoDBClient()
+    private MySQLDBClient()
     {
         try
         {
 
-            mongoClient = MongoClients.create(System.getProperty("mongodb.uri"));
+            mysqlClient = MongoClients.create(System.getProperty("mysql.uri"));
 
         }
         catch( MongoException me)
@@ -22,17 +22,17 @@ public class MongoDBClient {
             me.getStackTrace();
         }
     }
-    public static MongoDBClient getClient()
+    public static MySQLDBClient getClient()
     {
         if (client == null){
             System.out.println("Primera vez");
-            client = new MongoDBClient();
+            client = new MySQLDBClient();
         }
 
         return client;
     }
 
     public long getData(){
-        return this.mongoClient.getDatabase("myFirstDatabase").getCollection("bootcamp").countDocuments();
+        return this.mysqlClient.getDatabase("myFirstDatabase").getCollection("bootcamp").countDocuments();
     }
 }
